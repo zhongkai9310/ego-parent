@@ -28,6 +28,12 @@
 			<artifactId>ego-common</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
+		<!-- ego sso 依赖 -->
+		<dependency>
+			<groupId>com.ego</groupId>
+			<artifactId>ego-sso</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
 		<!-- spring boot freemarker 依赖 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -48,6 +54,10 @@
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.qiniu</groupId>
+			<artifactId>qiniu-java-sdk</artifactId>
+		</dependency>
 		<!-- spring boot test 依赖 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -60,9 +70,15 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<!-- spring data redis 依赖 -->
 		<dependency>
-			<groupId>com.qiniu</groupId>
-			<artifactId>qiniu-java-sdk</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+		<!-- commons-pool2 对象池依赖 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-pool2</artifactId>
 		</dependency>
 	</dependencies>
 </project>

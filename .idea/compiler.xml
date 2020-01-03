@@ -7,12 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ego-rpc" />
-        <module name="ego-portal" />
         <module name="ego-generator" />
         <module name="ego-sso" />
+        <module name="ego-manager" />
         <module name="ego-order" />
         <module name="ego-common" />
-        <module name="ego-manager" />
+        <module name="ego-portal" />
       </profile>
     </annotationProcessing>
   </component>

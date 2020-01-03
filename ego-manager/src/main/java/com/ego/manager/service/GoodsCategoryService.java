@@ -37,4 +37,10 @@ public interface GoodsCategoryService {
      */
     List<GoodsCategoryVo> selectAllList();
 
+    /**
+     * 查询所有商品分类
+     * @return
+     */
+    List<GoodsCategory> selectList();
+
 }

@@ -16,7 +16,7 @@
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b></b></span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><img src="${ctx}/images/ego_logo.png" width="40" height="30">&nbsp;&nbsp;<b>ego</b></span>
+        <span class="logo-lg"><img src="${ctx}/static/images/ego_logo.png" width="40" height="30">&nbsp;&nbsp;<b>ego</b></span>
       </a>
       <!-- Header Navbar: style can be found in header.less -->
       <nav class="navbar navbar-static-top" role="navigation">
@@ -29,12 +29,12 @@
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
            <li class="dropdown user user-menu">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <!--  <img src="${ctx}/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">-->
-                <i class="glyphicon glyphicon-user"></i>
-                <span class="hidden-xs">欢迎：admin</span>
-              </a>
-              <ul class="dropdown-menu">
+			   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				   <!--  <img src="${ctx}/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">-->
+				   <i class="glyphicon glyphicon-user"></i>
+				   <span class="hidden-xs">欢迎：${user.userName}</span>
+			   </a>
+			   <ul class="dropdown-menu">
                 <li class="user-footer">
                   <div class="pull-left">
                   	<a href="/index/Admin/Index/index" data-url="" class="btn btn-default btn-flat model-map">后台首页</a>
@@ -120,7 +120,7 @@
 	            		<a href='${ctx}/category/list' target='rightContent'><i class="fa
 	            		fa-circle-o"></i>商品分类</a>
 	            	</li><li onclick="makecss(this)" data-id="goodsList_Goods">
-	            		<a href='商品管理/商品列表.html' target='rightContent'><i class="fa fa-circle-o"></i>商品列表</a>
+	            		<a href='${ctx}/goods/list' target='rightContent'><i class="fa fa-circle-o"></i>商品列表</a>
 	            	</li><li onclick="makecss(this)" data-id="stock_list_Goods">
 	            		<a href='商品管理/库存日志.html' target='rightContent'><i class="fa fa-circle-o"></i>库存日志</a>
 	            	</li><li onclick="makecss(this)" data-id="goodsTypeList_Goods">
@@ -306,12 +306,12 @@
    <div class="control-sidebar-bg"></div>
 </div>
 
-<script src="${ctx}/js/jquery-ui.min.js" type="text/javascript"></script>
-<script src="${ctx}/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="${ctx}/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-<script src="${ctx}/plugins/fastclick/fastclick.min.js" type="text/javascript"></script>
-<script src="${ctx}/dist/js/app.js" type="text/javascript"></script>
-<script src="${ctx}/dist/js/demo.js" type="text/javascript"></script>
+<script src="${ctx}/static/js/jquery-ui.min.js" type="text/javascript"></script>
+<script src="${ctx}/static/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="${ctx}/static/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="${ctx}/static/plugins/fastclick/fastclick.min.js" type="text/javascript"></script>
+<script src="${ctx}/static/dist/js/app.js" type="text/javascript"></script>
+<script src="${ctx}/static/dist/js/demo.js" type="text/javascript"></script>
  
 <script type="text/javascript">
 $(document).ready(function(){
