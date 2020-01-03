@@ -2,6 +2,7 @@ package com.ego.manager.controller;
 
 import com.ego.common.result.FileResult;
 import com.ego.manager.service.UploadService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +23,7 @@ import java.time.format.DateTimeFormatter;
 @RequestMapping("fileUpload")
 public class UploadController {
 
-    @Resource
+    @Autowired
     private UploadService uploadService;
 
     @RequestMapping("save")

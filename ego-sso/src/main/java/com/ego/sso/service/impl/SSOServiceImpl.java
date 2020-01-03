@@ -4,8 +4,8 @@ import com.alibaba.dubbo.config.annotation.Service;
 import com.ego.common.util.Md5Util;
 import com.ego.common.util.UUIDUtil;
 import com.ego.sso.mapper.AdminMapper;
-import com.ego.sso.pojo.Admin;
-import com.ego.sso.pojo.AdminExample;
+import com.ego.common.pojo.Admin;
+import com.ego.common.pojo.AdminExample;
 import com.ego.sso.service.SSOService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -94,5 +94,15 @@ public class SSOServiceImpl implements SSOService {
             return null;
         }
         return admin;
+    }
+
+    /**
+     * 用户退出
+     *
+     * @param ticket
+     */
+    @Override
+    public void logout(String ticket) {
+        redisTemplate.delete(userTicket + ":" + ticket);
     }
 }

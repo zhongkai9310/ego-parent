@@ -1,5 +1,7 @@
 package com.ego.manager.config;
 
+import com.ego.manager.interceptor.ManagerLoginInterceptor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -17,6 +19,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebMvc
 public class MvcConfig implements WebMvcConfigurer {
 
+    @Autowired
+    private ManagerLoginInterceptor loginInterceptor;
+
     /**
      * 拦截器配置
      * addInterceptor:添加拦截器
@@ -28,7 +33,13 @@ public class MvcConfig implements WebMvcConfigurer {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-
+        registry.addInterceptor(loginInterceptor)
+                .addPathPatterns("/**")
+                .excludePathPatterns("/static/**")
+                .excludePathPatterns("/login/**")
+                .excludePathPatterns("/image/**")
+                .excludePathPatterns("/user/login/**")
+                .excludePathPatterns("/user/logout/**");
     }
 
     @Override

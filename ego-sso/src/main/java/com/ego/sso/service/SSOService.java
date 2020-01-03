@@ -1,6 +1,6 @@
 package com.ego.sso.service;
 
-import com.ego.sso.pojo.Admin;
+import com.ego.common.pojo.Admin;
 
 /**
  * 单点登录系统service
@@ -24,4 +24,10 @@ public interface SSOService {
      * @return
      */
     Admin validate(String ticket);
+
+    /**
+     * 用户退出
+     * @param ticket
+     */
+    void logout(String ticket);
 }

@@ -1,4 +1,4 @@
-package com.ego.sso.pojo;
+package com.ego.common.pojo;
 
 import java.io.Serializable;
 

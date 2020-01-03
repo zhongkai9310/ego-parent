@@ -1,8 +1,8 @@
 package com.ego.sso.mapper;
 
-import com.ego.sso.pojo.Admin;
-import com.ego.sso.pojo.AdminExample;
-import com.ego.sso.pojo.AdminWithBLOBs;
+import com.ego.common.pojo.Admin;
+import com.ego.common.pojo.AdminExample;
+import com.ego.common.pojo.AdminWithBLOBs;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

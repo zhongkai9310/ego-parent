@@ -1,8 +1,8 @@
-package com.ego.manager.interceptor;
+package com.ego.portal.interceptor;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.ego.common.util.CookieUtil;
 import com.ego.common.pojo.Admin;
+import com.ego.common.util.CookieUtil;
 import com.ego.sso.service.SSOService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,14 +18,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 后台系统登录拦截器
+ * 前台系统登录拦截器
  *
  * @Author: sun
- * @DateTime: 2020/1/2 19:58
+ * @DateTime: 2020/1/3 19:40
  * @since 1.0.0
  */
 @Component
-public class ManagerLoginInterceptor implements HandlerInterceptor {
+public class PortalLoginInterceptor implements HandlerInterceptor {
 
     @Reference(interfaceClass = SSOService.class)
     private SSOService ssoService;
@@ -61,7 +61,13 @@ public class ManagerLoginInterceptor implements HandlerInterceptor {
                 stringObjectValueOperations.set(userTicket + ":" + ticket, admin, 30, TimeUnit.MINUTES);
                 // 放行
                 return true;
+            } else {
+                // 如果不存在票据，清除session
+                request.getSession().removeAttribute("user");
             }
+        } else {
+            // 如果不存在票据，清除session
+            request.getSession().removeAttribute("user");
         }
         // 如果票据信息为空，跳转至登录页面（重定向）
         response.sendRedirect(request.getContextPath() + "/login");

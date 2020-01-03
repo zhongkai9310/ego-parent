@@ -123,15 +123,10 @@
 
         <div class="mmenu">
             <div class="s_hd">
-
                 <div id="s_search">
-                    <form id="s_search_form" onsubmit="return false;">
-                        <input type="hidden" id="pageNum" name="pageNum" value="1"/>
-                        <input type="hidden" id="pageSize" name="pageSize" value="12"/>
-                        <input name="searchStr" value="${searchStr}" type="text" class="search-input"/>
-                        <input onclick="doSearch();"
-                               type="image"
-                               src="${ctx}/static/images/btn_search.jpg"/>
+                    <form action="" method="post"><input name="" type="text" class="search-input"/><input name=""
+                                                                                                          type="image"
+                                                                                                          src="${ctx}/static/images/btn_search.jpg"/>
                     </form>
                 </div>
 
@@ -1409,7 +1404,7 @@
                                                 <ul>
                                                     <li><a href="#">床品套件99元起</a></li>
                                                     <li><a href="#">华润家纺买赠特促</a></li>
-                                                    <li><a href="#">御灵珠宝登入EGO</a></li>
+                                                    <li><a href="#">御灵珠宝登入1号店</a></li>
                                                     <li><a href="#">婚庆开始了</a></li>
                                             </dd>
                                         </dl>
@@ -1814,231 +1809,128 @@
 
     </div><!--s_hdw end-->
 
-    <link type="text/css" href="${ctx}/static/css/list.css" rel="stylesheet"/>
+    <link type="text/css" href="${ctx}/static/css/info.css" rel="stylesheet"/>
 
     <div id="s_bdw">
         <div id="s_bd">
-            <div class="zadv"><a href="#"><img src="${ctx}/static/images/3215wa.jpg" width="980" height="62" alt=""/></a></div>
 
-            <div class="breadcrumbs">
-                <div class="f-l"><a href="#">全部结果</a><span>»</span><a href="#">食品、饮料、酒水</a><span>»</span><a href="#">进口食品</a><span>»</span>进口米
-                </div>
-                <div class="f-r">搜索结果(<b class="red">19</b>)</div>
-            </div>
+            <div class="stepflow"><img src="${ctx}/static/images/step01.gif" width="980" height="32" alt=""/></div>
 
-            <div class="f-l leftlist">
-                <div class="sort">
-                    <h2>筛选分类</h2>
-                    <h3><a href="#">大家电、生活电器(3890)</a></h3>
-                    <dl>
-                        <dt><a href="#">厨房电器(1001)</a></dt>
-                        <dd>
-                            <span>豆浆机(85)</span>
-                            <a href="#">微波炉(35)</a>
-                            <a href="#">电压力锅(181)</a>
-                            <a href="#">电水壶/热水瓶(144)</a>
-                            <a href="#">电磁炉(53)</a>
-                            <a href="#">多用途锅(78)</a>
-                            <a href="#">电饼铛/煎拷机(3)</a>
-                            <a href="#">煮蛋器(34)</a>
-                        </dd>
-                    </dl>
-                    <h3><a href="#">大家电、生活电器(3890)</a></h3>
-                    <dl>
-                        <dt><span>厨房电器(1001)</span></dt>
-                        <dd>
-                            <a href="#">豆浆机(85)</a>
-                            <a href="#">微波炉(35)</a>
-                            <a href="#">电压力锅(181)</a>
-                            <a href="#">电水壶/热水瓶(144)</a>
-                            <a href="#">电磁炉(53)</a>
-                            <a href="#">多用途锅(78)</a>
-                            <a href="#">电饼铛/煎拷机(3)</a>
-                            <a href="#">煮蛋器(34)</a>
-                        </dd>
-                    </dl>
-                </div><!--sort end-->
-
-                <div class="ladv"><a href="#"><img src="${ctx}/static/images/2asd.jpg" width="205" height="72" alt=""/></a></div>
-
-                <div class="ladv"><a href="#"><img src="${ctx}/static/images/12ad.jpg" width="205" height="72" alt=""/></a></div>
-
-                <div class="ladv"><a href="#"><img src="${ctx}/static/images/21af.jpg" width="205" height="72" alt=""/></a></div>
-
-                <div class="Toplist">
-                    <div class="Ttitle"><h2 class="f-l">热销商品排行榜</h2></div>
-                    <div class="Topcon">
-                        <ul>
-                            <li>
-                                <a href="#"><img src="${ctx}/static/images/124ad.jpg" width="58" height="58" alt=""/></a>
-                                <p><a href="#">心相印优选装200抽2层塑装面巾纸</a><br/><strong class="red">￥10.9</strong></p>
-                            </li>
-                            <li>
-                                <a href="#"><img src="${ctx}/static/images/124ad.jpg" width="58" height="58" alt=""/></a>
-                                <p><a href="#">心相印优选装200抽2层塑装面巾纸</a><br/><strong class="red">￥10.9</strong></p>
-                            </li>
-                            <li>
-                                <a href="#"><img src="${ctx}/static/images/124ad.jpg" width="58" height="58" alt=""/></a>
-                                <p><a href="#">心相印优选装200抽2层塑装面巾纸</a><br/><strong class="red">￥10.9</strong></p>
-                            </li>
-                            <li>
-                                <a href="#"><img src="${ctx}/static/images/124ad.jpg" width="58" height="58" alt=""/></a>
-                                <p><a href="#">心相印优选装200抽2层塑装面巾纸</a><br/><strong class="red">￥10.9</strong></p>
-                            </li>
-                            <li class="last">
-                                <a href="#"><img src="${ctx}/static/images/124ad.jpg" width="58" height="58" alt=""/></a>
-                                <p><a href="#">心相印优选装200抽2层塑装面巾纸</a><br/><strong class="red">￥10.9</strong></p>
-                            </li>
-                        </ul>
-                    </div>
-                </div><!--Toplist end-->
-
-                <div class="Toplist">
-                    <div class="Ttitle"><h2 class="f-l">浏览记录</h2><a style="color:#4484db;" class="f-r"
-                                                                    href="#"><b>清除</b></a></div>
-                    <div class="browselist">
-                        <ul class="cf">
-                            <li><a href="#"><img src="${ctx}/static/images/21da.jpg" width="58" height="58" alt=""/></a></li>
-                            <li><a href="#"><img src="${ctx}/static/images/21da.jpg" width="58" height="58" alt=""/></a></li>
-                            <li><a href="#"><img src="${ctx}/static/images/21da.jpg" width="58" height="58" alt=""/></a></li>
-                            <li><a href="#"><img src="${ctx}/static/images/21da.jpg" width="58" height="58" alt=""/></a></li>
-                            <li><a href="#"><img src="${ctx}/static/images/21da.jpg" width="58" height="58" alt=""/></a></li>
-                            <li><a href="#"><img src="${ctx}/static/images/21da.jpg" width="58" height="58" alt=""/></a></li>
-                        </ul>
-                    </div>
-                </div><!--Toplist end-->
-
-            </div><!--leftlist end-->
-
-            <div class="f-r rightlist">
-
-                <div class="hotbox cf">
-                    <div class="f-l hotcon">
-                        <h2>热卖推荐</h2>
-                        <ul class="cf">
-                            <li>
-                                <a href="#"><img src="${ctx}/static/images/21ad.jpg" width="115" height="115" alt=""/></a>
-                                <dl>
-                                    <dt><a href="#">凌仕魅动男士香氛-契合</a></dt>
-                                    <dd>特价：<strong class="red">￥52.9</strong></dd>
-                                    <dd><span class="startotal"></span></dd>
-                                    <dd><a class="addcat" href="#">加入购物车</a></dd>
-                                </dl>
-                            </li>
-                            <li>
-                                <a href="#"><img src="${ctx}/static/images/214ad.jpg" width="115" height="115" alt=""/></a>
-                                <dl>
-                                    <dt><a href="#">凌仕魅动男士香氛-契合</a></dt>
-                                    <dd>特价：<strong class="red">￥52.9</strong></dd>
-                                    <dd><span class="startotal"></span></dd>
-                                    <dd><a class="addcat" href="#">加入购物车</a></dd>
-                                </dl>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="f-l promotion">
-                        <h2>促销活动</h2>
-                        <p>指定冰洗买就送插座!液晶电视清仓大放价，小家电惠战十月，最低三大合资空调疯狂抢购</p>
-                    </div>
-                </div><!--hotbox end-->
-
-                <div class="retrieve">
-                    <dl class="cf">
-                        <dt>品牌：</dt>
-                        <dd><span><a href="#" class="current">全部</a></span><span><a href="#">泰滋泰味(1)</a></span><span><a
-                                        href="#">金象(3)</a></span><span><a href="#">金蝶(6)</a></span><span><a href="#">红水晶(8)</a></span><span><a
-                                        href="#">樱城(5)</a></span></dd>
-                    </dl>
-                    <dl class="cf">
-                        <dt>包装：</dt>
-                        <dd><span><a href="#" class="current">全部</a></span><span><a href="#">全部袋装(19)</a></span></dd>
-                    </dl>
-                    <dl class="cf">
-                        <dt>产地：</dt>
-                        <dd><span><a href="#" class="current">全部</a></span><span><a href="#">全部其他国家和地区(12)</a></span>
-                        </dd>
-                    </dl>
-                    <div class="clear"></div>
-                </div><!--retrieve end-->
-
-                <div class="product">
-                    <div class="productsreach">
-                        <dl>
-                            <dt>显示：</dt>
-                            <dd><a class="current" id="imgicon" href="#">图片</a><a id="listicon" href="#">列表</a></dd>
-                        </dl>
-                        <dl style="margin:0;">
-                            <dt>排列：</dt>
-                            <dd>
-                                <div id="rankmenu">
-                                    <a href="#">默认排序</a>
-                                    <ul class="cf">
-                                        <li><a href="#">价格高低</a></li>
-                                        <li><a href="#">上架时间</a></li>
-                                    </ul>
-                                </div>
-                                <div class="iconsreach"><a class="current" id="price" href="#">价格</a><a id="sales"
-                                                                                                        href="#">销量</a><a
-                                            id="discuss" href="#">评论</a></div>
-                            </dd>
-                        </dl>
-                        <dl class="last">
-                            <dt>筛选：</dt>
-                            <dd>
-                                <input type="checkbox" name="" id="cx"/><label for="cx">促销</label>
-                                <input type="checkbox" name="" id="zp"/><label for="zp">有赠品</label>
-                                <input type="checkbox" name="" id="xp"/><label for="xp">新品</label>
-                            </dd>
-                        </dl>
-                    </div>
-                </div><!--product end-->
-
-                <script type="text/javascript">
-                    $(document).ready(function () {
-                        $("#rankmenu").hoverClass("current");
-                    });
-                </script>
-
-                <div class="productlist">
-                    <ul id="s_search_content">
-                        <li>
-                            <a href="#"><img src="${ctx}/static/images/21asfa.jpg" width="170" height="160" alt=""/></a>
-                            <dl>
-                                <dt><a href="#">凌仕魅动男士香氛-契合</a></dt>
-                                <dd>特价：<strong class="red">￥52.9</strong></dd>
-                                <dd><span class="startotal"></span></dd>
-                                <dd><a class="addcat" href="#">加入购物车</a></dd>
-                            </dl>
-                        </li>
-                    </ul>
-                </div>
+            <div class="addinfo">
+                <a href="javascript:history.go(-1);">返回继续购物</a>
+            </div><!--addinfo end-->
 
 
-                <div class="clear"></div>
+            <div class="cartlist">
+                <form method="post" action="${ctx}/order/toPreOrder">
+                    <table width="100%">
+                        <tr>
+                            <th>购物车中的商品</th>
+                            <th>EGO价</th>
+                            <th>购买数量</th>
+                            <th>订单时间</th>
+                            <th>操作</th>
+                        </tr>
+                        <#if (cartResult.cartList)??>
+                            <#list cartResult.cartList as cart>
+                                <tr bgcolor="#fffaf1">
+                                    <td>
+                                        <a href="#"><img class="smallpic" src="${cart.originalImg}" width="80"
+                                                         height="80"/></a>
+                                        <a href="#">${cart.goodsName}</a>
+                                    </td>
+                                    <td><strong class="red">￥${cart.marketPrice}</strong></td>
+                                    <td>
+                                        <div class="addinput">
+                                            <input type="text" name="qty_item_1" value="${cart.goodsNum}" id="qty_item_1"
+                                                   onKeyUp="setAmount.modify('#qty_item_1')" class="stext"/>
+                                            <a class="add" onClick="setAmount.add('#qty_item_1')"
+                                               href="javascript:void(0)"></a>
+                                            <a class="reduce" onClick="setAmount.reduce('#qty_item_1')"
+                                               href="javascript:void(0)"></a>
+                                        </div>
+                                    </td>
+                                    <td>${cart.addTime?string('yyyy-MM-dd HH:mm:ss')}</td>
+                                    <td><a href="#" class="blue">删除</a></td>
+                                </tr>
+                            </#list>
+                        </#if>
 
-                <div class="pagecon" id="s_search_page">
-                    <div class="f-r pagination">
-                        <span class="disabled">&lt; 上一页</span>
-                        <span class="current">1</span>
-                        <a href="#?page=2">2</a>
-                        <a href="#?page=3">3</a>
-                        <a href="#?page=4">4</a>
-                        <a href="#?page=5">5</a>
-                        <a href="#?page=6">6</a>
-                        <a href="#?page=7">7</a>
-                        <span class="dian3">...</span>
-                        <a href="#?page=199">199</a>
-                        <a href="#?page=200">200</a>
-                        <a href="#?page=2">下一页 &gt; </a>
-                        <div class="yepage">到第<input class="stext" type="text" name="" id="" value="1"/>页
-                            <input class="btnimg" type="submit" name="" id="" value=""/></div>
-                    </div><!--pagination end-->
-                </div>
+                        <tr>
+                            <td valign="top"><a href="#"><img src="${ctx}/static/images/deleteicon.gif"/> 清空购物车</a></td>
+                            <td align="right" colspan="5">
+                                <p>共<span id="cart_num" style="color: red"><#if (cartResult.cartList)??>${cartResult
+                                        .cartList?size}</#if></span>件商品</p>
+                                <p style="margin-top:10px;font-size:14px;">
+                                    <strong style="font-size:18px;color:#d80000;">￥<span
+                                                id="total_price">${(cartResult.totalPrice)!'0.00'}</span></strong></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border:none;padding-top:20px;" colspan="6">
+                                <input type="submit" value="" id="" class="btnimg f-r"/>
+                                <a class="f-r goonbtn" href="javascript:history.go(-1);">
+                                    <img src="${ctx}/static/images/gooncat.gif" width="86" height="24" alt=""/>
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div><!--cartlist end-->
 
-
-            </div><!--rightlist end-->
-
-            <div class="clear"></div>
+            <script type="text/javascript">
+                /* reduce_add */
+                var setAmount = {
+                    min: 1,
+                    max: 999,
+                    reg: function (x) {
+                        return new RegExp("^[1-9]\\d*$").test(x);
+                    },
+                    amount: function (obj, mode) {
+                        var x = $(obj).val();
+                        if (this.reg(x)) {
+                            if (mode) {
+                                x++;
+                            } else {
+                                x--;
+                            }
+                        } else {
+                            alert("请输入正确的数量！");
+                            $(obj).val(1);
+                            $(obj).focus();
+                        }
+                        return x;
+                    },
+                    reduce: function (obj) {
+                        var x = this.amount(obj, false);
+                        if (x >= this.min) {
+                            $(obj).val(x);
+                        } else {
+                            alert("商品数量最少为" + this.min);
+                            $(obj).val(1);
+                            $(obj).focus();
+                        }
+                    },
+                    add: function (obj) {
+                        var x = this.amount(obj, true);
+                        if (x <= this.max) {
+                            $(obj).val(x);
+                        } else {
+                            alert("商品数量最多为" + this.max);
+                            $(obj).val(999);
+                            $(obj).focus();
+                        }
+                    },
+                    modify: function (obj) {
+                        var x = $(obj).val();
+                        if (x < this.min || x > this.max || !this.reg(x)) {
+                            alert("请输入正确的数量！");
+                            $(obj).val(1);
+                            $(obj).focus();
+                        }
+                    }
+                }
+            </script>
 
         </div><!--s_bd end-->
     </div><!--s_bdw end-->
@@ -2132,116 +2024,5 @@
     </div><!--s_ftw end-->
 
 </div>
-
-
-<!-- 搜索商品结果模板 -->
-<script type="template" id="goodsTemplate">
-    {{ for(var i = 0; i < it.length; i++){ }}
-    <li>
-        <a href="#"><img src="{{=it[i].originalImg}}" width="170" height="160" alt=""/></a>
-        <dl>
-            <dt><a href="#">{{=it[i].goodsNameHl}}</a></dt>
-            <dd>特价：<strong class="red">￥{{=it[i].marketPrice}}</strong></dd>
-            <dd><span class="startotal"></span></dd>
-            <dd><a class="addcat" href="javascript:void(0);"
-                   onclick="addToCart('{{=it[i].goodsId}}', '{{=it[i].goodsName}}', '{{=it[i].marketPrice}}', '{{=it[i].originalImg}}');">加入购物车</a>
-            </dd>
-        </dl>
-    </li>
-    {{ } }}
-</script>
-
-
-<!-- 商品分页模板 -->
-<script type="template" id="pageTemplate">
-    <div class="f-r pagination">
-        {{ if(it.hasPre == true){ }}
-        <a href="javascript:void(0);" onclick="prePage();">&lt; 上一页</a>
-        {{ } }}
-
-        {{ for(var i = 1; i <= it.total; i++){ }}
-        {{ if(it.pageNum== i){ }}
-        <span class="current">{{=i}}</span>
-        {{ } else { }}
-        <a href="javascript:void(0);" onclick="numPage('{{=i}}');">{{=i}}</a>
-        {{ } }}
-        {{ } }}
-
-        {{ if(it.hasNext == true){ }}
-        <a href="javascript:void(0);" onclick="nextPage();">下一页 &gt; </a>
-        {{ } }}
-
-        <div class="yepage">
-            到第<input class="stext" type="text" name="" id="num" value="1"/>页
-            <input class="btnimg" type="button" onclick="numPageBtn();"/>
-        </div>
-    </div>
-</script>
-
-<script type="text/javascript">
-    // 页面加载完成后执行
-    $(function () {
-        doSearch();
-    });
-
-    // 搜索商品
-    function doSearch() {
-        $.ajax({
-            url: "${ctx}/search/searchGoods",
-            type: "POST",
-            data: $("#s_search_form").serialize(),
-            dataType: "JSON",
-            success: function (result) {
-                // console.log(result);
-                // 调用模板
-                var templ = doT.template($("#goodsTemplate").text());
-                // 填充内容
-                $("#s_search_content").html(templ(result.result));
-                // 调用模板
-                var page = doT.template($("#pageTemplate").text());
-                // 填充内容
-                $("#s_search_page").html(page(result));
-            },
-            error: function (result) {
-                alert("系统正在升级中，请稍后再试！");
-            }
-        });
-    }
-
-
-    // 上一页
-    function prePage() {
-        // 获取当前页的值 减一 然后重新赋值给当前页
-        var page = parseInt($("#pageNum").val()) - 1;
-        $("#pageNum").val(page);
-        // 调用搜索函数
-        doSearch();
-    }
-
-    // 下一页
-    function nextPage() {
-        // 获取当前页的值 加一 然后重新赋值给当前页
-        var page = parseInt($("#pageNum").val()) + 1;
-        $("#pageNum").val(page);
-        // 调用搜索函数
-        doSearch();
-    }
-
-    // 第几页
-    function numPage(num) {
-        // 获取点击的按钮值 然后重新赋值给当前页
-        $("#pageNum").val(num);
-        // 调用搜索函数
-        doSearch();
-    }
-
-    // 到第几页
-    function numPageBtn() {
-        // 获取输入的页码值 然后重新赋值给当前页
-        $("#pageNum").val($("#num").val());
-        // 调用搜索函数
-        doSearch();
-    }
-</script>
 </body>
 </html>

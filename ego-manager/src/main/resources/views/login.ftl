@@ -49,10 +49,11 @@
             <opinioncontrol realtime="true" opinion_name="vertify_code" default="true">
                 <div class="row" style="padding-right: 65px;">
                     <div class="col-xs-8">
-                        <input style="width: 135px" type="text" name="vertify" class="form-control" placeholder="验证码"/>
+                        <input style="width: 135px" type="text" name="vertify" id="vertify" class="form-control"
+                               placeholder="验证码"/>
                     </div>
                     <div class="col-xs-4">
-                        <img id="imgVerify" style="cursor:pointer;" src="${ctx}/static/images/vertify.png"
+                        <img id="imgVerify" style="cursor:pointer;" src="${ctx}/image/getKaptchaImage"
                              alt="点击更换" title="点击更换"/>
                     </div>
                 </div>
@@ -86,20 +87,6 @@
 </div><!-- /.login-box -->
 <script>
 
-    $(function () {
-        $('input').iCheck({
-            checkboxClass: 'icheckbox_square-blue',
-            radioClass: 'iradio_square-blue',
-            increaseArea: '20%' // optional
-        });
-    });
-
-
-    function fleshVerify() {
-        //重载验证码
-        $('#imgVerify').attr('src', '/index?m=Admin&c=Admin&a=vertify&r=' + Math.floor(Math.random() * 100));
-    }
-
 
     jQuery.fn.center = function () {
         this.css("position", "absolute");
@@ -110,41 +97,6 @@
         return this;
     }
 
-    function checkLogin() {
-        var username = $('#username').val();
-        var password = $('#password').val();
-        var vertify = $('input[name="vertify"]').val();
-        if (username == '' || password == '') {
-            layer.alert('用户名或密码不能为空', {icon: 2}); //alert('用户名或密码不能为空');
-            return;
-        }
-        if (vertify == '') {
-            layer.alert('验证码不能为空', {icon: 2});
-            return;
-        }
-        if (vertify.length != 4) {
-            layer.alert('验证码错误', {icon: 2});
-            //fleshVerify();
-            return;
-        }
-
-        $.ajax({
-            url: '/index?m=Admin&c=Admin&a=login&t=' + Math.random(),
-            type: 'post',
-            dataType: 'json',
-            data: {username: username, password: password, vertify: vertify},
-            success: function (res) {
-                if (res.status == 1) {
-                    top.location.href = res.url;
-                } else {
-                    layer.alert(res.msg, {icon: 2});
-                }
-            },
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                layer.alert('网络失败，请刷新页面后重试', {icon: 2});
-            }
-        })
-    }
 
     document.onkeydown = function (event) {
         e = event ? event : (window.event ? window.event : null);
@@ -154,22 +106,57 @@
     }
 
 
+    $(function () {
+        getKaptchaImage();
+    });
+
+    //点击更换验证码
+    function getKaptchaImage() {
+        $("#imgVerify").on("click", function () {
+            var url = "${ctx}" + "/image/getKaptchaImage?time=" + new Date();
+            $(this).attr("src", url);
+        });
+    }
+
 
     // 用户登录
     function userLogin() {
+        // 必须输入用户名、密码、验证码
+        var username = $("#username").val();
+        var password = $("#password").val();
+        var vertify = $("#vertify").val();
+
+        if (undefined == username || "" == username) {
+            layer.alert("请输入用户名！");
+            return;
+        }
+
+        if (undefined == password || "" == password) {
+            layer.alert("请输入密码！");
+            return;
+        }
+
+        if (undefined == vertify || "" == vertify) {
+            layer.alert("请输入验证码！");
+            return;
+        }
+
         $.ajax({
             url: "${ctx}/user/login",
             type: "POST",
             data: {
-                userName: $("#username").val(),
-                password: $("#password").val()
+                userName: username,
+                password: password,
+                verify: vertify
             },
             dataType: "JSON",
             success: function (result) {
                 if (200 == result.code) {
                     location.href = "${ctx}/index";
                 } else {
-                    layer.alert("用户名或密码错误，请重新输入！");
+                    // 模拟点击事件行为
+                    $("#imgVerify").trigger("click");
+                    layer.alert(result.message);
                 }
             },
             error: function () {
