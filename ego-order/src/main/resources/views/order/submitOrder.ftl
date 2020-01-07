@@ -123,12 +123,7 @@
 
         <div class="mmenu">
             <div class="s_hd">
-                <div id="s_search">
-                    <form action="" method="post"><input name="" type="text" class="search-input"/><input name=""
-                                                                                                          type="image"
-                                                                                                          src="${ctx}/static/images/btn_search.jpg"/>
-                    </form>
-                </div>
+                <#include "../common/search.ftl">
 
                 <div id="s_keyword">
                     <ul>
@@ -1404,7 +1399,7 @@
                                                 <ul>
                                                     <li><a href="#">床品套件99元起</a></li>
                                                     <li><a href="#">华润家纺买赠特促</a></li>
-                                                    <li><a href="#">御灵珠宝登入1号店</a></li>
+                                                    <li><a href="#">御灵珠宝登入EGO</a></li>
                                                     <li><a href="#">婚庆开始了</a></li>
                                             </dd>
                                         </dl>
@@ -1814,118 +1809,28 @@
     <div id="s_bdw">
         <div id="s_bd">
 
-            <div class="stepflow"><img src="${ctx}/static/images/step01.gif" width="980" height="32" alt=""/></div>
+            <div class="stepflow"><img src="${ctx}/static/images/stepend.gif" width="980" height="33" alt=""/></div>
+            <form id="paymentForm" action="${ctx}/order/payment" method="post">
+                <input type="hidden" name="orderSn" value="${orderSn}"/>
+                <div class="osuccess">
+                    <strong class="tit">您的订单提交成功！</strong>
+                    <p>我们讲为您保留订单2日，如果2日后EGO网仍未收到您的付款，我们将自动取消此订单。<br/>商品预计到达时间：2011年11月06日，星期日，下午14:00-18:00，请您注意查收。</p>
+                    <div class="ddinfo">
+                        订单编号：${orderSn} <a class="blue" href="#">查看订单详情</a><br/>付款方式：在线支持 支付宝<br/>应付金额：<strong
+                                class="red">￥${totalPrice}</strong>
+                    </div>
+                    <p class="gopay"><a href="javascript:void(0);" onclick="payment();"><img
+                                    src="${ctx}/static/images/gopay.gif" width="88" height="36" alt=""/></a></p>
+                    <div class="nowgo">您现在还可以：<br/><a class="blue" href="#">返回首页</a><a class="blue" href="#">继续购物</a><a
+                                class="blue" href="#">查看订单</a><a class="blue" href="#">订单中心</a></div>
+                </div><!--osuccess end-->
+            </form>
 
-            <div class="addinfo">
-                <a href="javascript:history.go(-1);">返回继续购物</a>
-            </div><!--addinfo end-->
-
-
-            <div class="cartlist">
-                <form method="get" action="${ctx}/order/toPreOrder">
-                    <table width="100%">
-                        <tr>
-                            <th>购物车中的商品</th>
-                            <th>EGO价</th>
-                            <th>购买数量</th>
-                            <th>订单时间</th>
-                            <th>操作</th>
-                        </tr>
-                        <#list cartResult.cartList as cart>
-                            <tr bgcolor="#fffaf1">
-                                <td>
-                                    <a href="#"><img class="smallpic" src="${cart.originalImg}" width="80" height="80"/></a>
-                                    <a href="#">${cart.goodsName}</a>
-                                </td>
-                                <td><strong class="red">￥${cart.marketPrice}</strong></td>
-                                <td>
-                                    <div class="addinput">
-                                        <input type="text" name="qty_item_1" value="${cart.goodsNum}" id="qty_item_1"
-                                               onKeyUp="setAmount.modify('#qty_item_1')" class="stext"/>
-                                        <a class="add" onClick="setAmount.add('#qty_item_1')"
-                                           href="javascript:void(0)"></a>
-                                        <a class="reduce" onClick="setAmount.reduce('#qty_item_1')"
-                                           href="javascript:void(0)"></a>
-                                    </div>
-                                </td>
-                                <td>${cart.addTime?string('yyyy-MM-dd HH:mm:ss')}</td>
-                                <td><a href="#" class="blue">删除</a></td>
-                            </tr>
-                        </#list>
-                        <tr>
-                            <td valign="top"><a href="#"><img src="${ctx}/static/images/deleteicon.gif"/> 清空购物车</a></td>
-                            <td align="right" colspan="5">
-                                <p>共<span id="cart_num" style="color: red"></span>件商品</p>
-                                <p style="margin-top:10px;font-size:14px;">
-                                    <strong style="font-size:18px;color:#d80000;">￥<span
-                                                id="total_price">${cartResult.totalPrice}</span></strong></p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border:none;padding-top:20px;" colspan="6">
-                                <input type="submit" value="" id="" class="btnimg f-r"/>
-                                <a class="f-r goonbtn" href="javascript:history.go(-1);">
-                                    <img src="${ctx}/static/images/gooncat.gif" width="86" height="24" alt=""/>
-                                </a>
-                            </td>
-                        </tr>
-                    </table>
-                </form>
-            </div><!--cartlist end-->
-
-            <script type="text/javascript">
-                /* reduce_add */
-                var setAmount = {
-                    min: 1,
-                    max: 999,
-                    reg: function (x) {
-                        return new RegExp("^[1-9]\\d*$").test(x);
-                    },
-                    amount: function (obj, mode) {
-                        var x = $(obj).val();
-                        if (this.reg(x)) {
-                            if (mode) {
-                                x++;
-                            } else {
-                                x--;
-                            }
-                        } else {
-                            alert("请输入正确的数量！");
-                            $(obj).val(1);
-                            $(obj).focus();
-                        }
-                        return x;
-                    },
-                    reduce: function (obj) {
-                        var x = this.amount(obj, false);
-                        if (x >= this.min) {
-                            $(obj).val(x);
-                        } else {
-                            alert("商品数量最少为" + this.min);
-                            $(obj).val(1);
-                            $(obj).focus();
-                        }
-                    },
-                    add: function (obj) {
-                        var x = this.amount(obj, true);
-                        if (x <= this.max) {
-                            $(obj).val(x);
-                        } else {
-                            alert("商品数量最多为" + this.max);
-                            $(obj).val(999);
-                            $(obj).focus();
-                        }
-                    },
-                    modify: function (obj) {
-                        var x = $(obj).val();
-                        if (x < this.min || x > this.max || !this.reg(x)) {
-                            alert("请输入正确的数量！");
-                            $(obj).val(1);
-                            $(obj).focus();
-                        }
-                    }
-                }
-            </script>
+            <dl style="margin-top:10px;">
+                <dt>注意事项：</dt>
+                <dd>1.“订单提交成功”仅表明EGO网收到了您的订单，只有您的订单通过审核后，才代表订单正式生效；<br/>2.选择货到付款/EGO快递的客户，请您务必认真检查所收货物，如有不符，您可以拒收；<br/>3.选择其他方式的客户，请您认真检查外包装。如有明显损坏迹象，您可以拒收该货品，并及时通知我们；<br/>4.建议在购买的15天内保留商品的全套包装、附件、发票等所有随货物品，以便后续的保修处理。
+                </dd>
+            </dl>
 
         </div><!--s_bd end-->
     </div><!--s_bdw end-->
@@ -2019,5 +1924,12 @@
     </div><!--s_ftw end-->
 
 </div>
+
+<script type="text/javascript">
+    // 去付款
+    function payment() {
+        $("#paymentForm").submit();
+    }
+</script>
 </body>
 </html>

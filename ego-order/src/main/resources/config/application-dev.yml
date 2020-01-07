@@ -1,8 +1,7 @@
 server:
-  port: 9091                                # 项目访问端口，默认 8080
+  port: 9092                                # 项目访问端口，默认 8080
   servlet:                                 # 项目访问路径，默认 /
-    context-path: /ego-portal
-
+    context-path: /ego-order
 # Spring
 spring:
   # 数据源
@@ -64,7 +63,7 @@ spring:
   redis:
     timeout: 10000ms                        # 连接超时时间
     host: 192.168.10.100                   # Redis服务器地址
-    port: 6379                             # Redis服务器端口
+    port: 6379                              # Redis服务器端口
     database: 0                             # 选择哪个库，默认0库
     lettuce:
       pool:
@@ -72,7 +71,6 @@ spring:
         max-wait: 10000ms                   # 最大连接阻塞等待时间，单位毫秒，默认 -1
         max-idle: 200                       # 最大空闲连接，默认 8
         min-idle: 5                         # 最小空闲连接，默认 0
-
   # Dubbo
   dubbo:
     #开启dubbo服务
@@ -84,30 +82,17 @@ spring:
     registry:
       address: zookeeper://192.168.10.100:2181?backup=192.168.10.100:2182,192.168.10.100:2183
     # 用 dubbo 协议在 20880 端口暴露服务
-    protocol:
-      name: dubbo
-      port: 20880
+    #    protocol:
+    #      name: dubbo
+    #      port: 20880
     # 扫描需要暴露的服务接口包
     scan:
-      base-packages: com.ego.portal
+      base-packages: com.ego.order
 
-#rabbitmq配置
-rabbitmq:
-  #服务器地址
-  host: 127.0.0.1
-  #端口
-  port: 5672
-  #用户名
-  username: ego
-  #密码
-  password: ego
-  #权限
-  virtual-host: /ego
-
-  # MyBatis
+# MyBatis
 mybatis:
   # 配置 MyBatis数据返回类型别名(默认别名是类名)
-  type-aliases-package: com.ego.portal.pojo
+  type-aliases-package: com.ego.order.pojo
   # 配置 MyBatis Mapper 映射文件
   mapper-locations: classpath:mapper/*.xml
 
@@ -116,14 +101,18 @@ logging:
   level:
     com.ego.manager.mapper: debug
 
-#关闭es健康监测
+# Redis Key
+#用户票据key
+user.ticket: user:userTicket
+# redis订单自增key
+redis.order.increment: order:increment
+
+
+# ego-portal系统url
+ego.portal.url: http://localhost:9091/ego-portal/
+
+#关闭Elasticsearch健康检查
 management:
   health:
     elasticsearch:
       enabled: false
-
-#用户票据key
-user.ticket: user:userTicket
-
-# ego-order系统url
-ego.order.url: http://localhost:9092/ego-order/

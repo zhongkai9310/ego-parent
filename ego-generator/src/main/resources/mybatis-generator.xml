@@ -71,11 +71,17 @@
 				domainObjectName生成的实体类名
 				是否需要mapper配置文件加入sql的where条件查询,需要将enableCountByExample等设为true,会生成一个对应domainObjectName的Example类
 		 -->
-		<table tableName="t_admin" domainObjectName="Admin"
-		       enableCountByExample="true" enableDeleteByExample="true"
-		       enableSelectByExample="true" enableUpdateByExample="true">
+		<table tableName="t_order" domainObjectName="Order"
+			   enableCountByExample="true" enableDeleteByExample="true"
+			   enableSelectByExample="true" enableUpdateByExample="true">
 			<!-- 用于insert时，返回主键的编号 -->
-			<generatedKey column="id" sqlStatement="MySql" identity="true"/>
+			<generatedKey column="order_id" sqlStatement="MySql" identity="true"/>
+		</table>
+		<table tableName="t_order_goods" domainObjectName="OrderGoods"
+			   enableCountByExample="true" enableDeleteByExample="true"
+			   enableSelectByExample="true" enableUpdateByExample="true">
+			<!-- 用于insert时，返回主键的编号 -->
+			<generatedKey column="rec_id" sqlStatement="MySql" identity="true"/>
 		</table>
 	</context>
 </generatorConfiguration>

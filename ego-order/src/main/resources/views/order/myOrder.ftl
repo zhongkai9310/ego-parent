@@ -3,7 +3,7 @@
 <!DOCTYPE html >
 <html>
 <head>
-    <#include "../head.ftl">
+   <#include "../head.ftl">
     <script type="text/javascript">
         var timeout = 500;
         var closetimer = 0;
@@ -123,12 +123,7 @@
 
         <div class="mmenu">
             <div class="s_hd">
-                <div id="s_search">
-                    <form action="" method="post"><input name="" type="text" class="search-input"/><input name=""
-                                                                                                          type="image"
-                                                                                                          src="${ctx}/static/images/btn_search.jpg"/>
-                    </form>
-                </div>
+                <#include "../common/search.ftl">
 
                 <div id="s_keyword">
                     <ul>
@@ -1404,7 +1399,7 @@
                                                 <ul>
                                                     <li><a href="#">床品套件99元起</a></li>
                                                     <li><a href="#">华润家纺买赠特促</a></li>
-                                                    <li><a href="#">御灵珠宝登入1号店</a></li>
+                                                    <li><a href="#">御灵珠宝登入EGO</a></li>
                                                     <li><a href="#">婚庆开始了</a></li>
                                             </dd>
                                         </dl>
@@ -1809,123 +1804,123 @@
 
     </div><!--s_hdw end-->
 
-    <link type="text/css" href="${ctx}/static/css/info.css" rel="stylesheet"/>
+    <link type="text/css" href="${ctx}/static/css/my.css" rel="stylesheet"/>
 
     <div id="s_bdw">
         <div id="s_bd">
 
-            <div class="stepflow"><img src="${ctx}/static/images/step01.gif" width="980" height="32" alt=""/></div>
+            <div style="margin:10px 0 0 0;"></div>
 
-            <div class="addinfo">
-                <a href="javascript:history.go(-1);">返回继续购物</a>
-            </div><!--addinfo end-->
+            <div class="breadcrumbs">
+                <div class="f-l"><a href="#">首页</a><span>»</span><a href="#">我的EGO</a><span>»</span>我的订单</div>
+            </div>
 
+            <div class="f-l presonalsort">
+                <dl>
+                    <dt>交易管理</dt>
+                    <dd><a class="current" href="#">我的收藏</a></dd>
+                    <dd><a href="#">我的优惠券</a></dd>
+                    <dd><a href="#">我的到货通知</a></dd>
+                    <dd><a href="#">我的积分</a></dd>
+                    <dd><a href="#">我的站内信</a></dd>
+                    <dd><a href="#">我的反馈</a></dd>
+                    <dd><a href="#">我的咨询</a></dd>
+                    <dd><a href="#">我的价格举报</a></dd>
+                    <dd><a href="#">我的装机配置</a></dd>
+                </dl>
+                <dl>
+                    <dt>售后管理</dt>
+                    <dd><a href="#">在线报修申请</a></dd>
+                    <dd><a href="#">我的在线报修</a></dd>
+                </dl>
+                <dl>
+                    <dt>资料管理</dt>
+                    <dd><a href="#">个人资料</a></dd>
+                    <dd><a href="#">收货信息</a></dd>
+                    <dd><a href="#">登录密码</a></dd>
+                    <dd><a href="#">邮件订阅</a></dd>
+                </dl>
+            </div><!--presonalsort end-->
 
-            <div class="cartlist">
-                <form method="get" action="${ctx}/order/toPreOrder">
-                    <table width="100%">
-                        <tr>
-                            <th>购物车中的商品</th>
-                            <th>EGO价</th>
-                            <th>购买数量</th>
-                            <th>订单时间</th>
-                            <th>操作</th>
-                        </tr>
-                        <#list cartResult.cartList as cart>
-                            <tr bgcolor="#fffaf1">
-                                <td>
-                                    <a href="#"><img class="smallpic" src="${cart.originalImg}" width="80" height="80"/></a>
-                                    <a href="#">${cart.goodsName}</a>
-                                </td>
-                                <td><strong class="red">￥${cart.marketPrice}</strong></td>
-                                <td>
-                                    <div class="addinput">
-                                        <input type="text" name="qty_item_1" value="${cart.goodsNum}" id="qty_item_1"
-                                               onKeyUp="setAmount.modify('#qty_item_1')" class="stext"/>
-                                        <a class="add" onClick="setAmount.add('#qty_item_1')"
-                                           href="javascript:void(0)"></a>
-                                        <a class="reduce" onClick="setAmount.reduce('#qty_item_1')"
-                                           href="javascript:void(0)"></a>
-                                    </div>
-                                </td>
-                                <td>${cart.addTime?string('yyyy-MM-dd HH:mm:ss')}</td>
-                                <td><a href="#" class="blue">删除</a></td>
-                            </tr>
-                        </#list>
-                        <tr>
-                            <td valign="top"><a href="#"><img src="${ctx}/static/images/deleteicon.gif"/> 清空购物车</a></td>
-                            <td align="right" colspan="5">
-                                <p>共<span id="cart_num" style="color: red"></span>件商品</p>
-                                <p style="margin-top:10px;font-size:14px;">
-                                    <strong style="font-size:18px;color:#d80000;">￥<span
-                                                id="total_price">${cartResult.totalPrice}</span></strong></p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border:none;padding-top:20px;" colspan="6">
-                                <input type="submit" value="" id="" class="btnimg f-r"/>
-                                <a class="f-r goonbtn" href="javascript:history.go(-1);">
-                                    <img src="${ctx}/static/images/gooncat.gif" width="86" height="24" alt=""/>
-                                </a>
-                            </td>
-                        </tr>
-                    </table>
-                </form>
-            </div><!--cartlist end-->
+            <div class="f-r presonalinfo">
+                <h2>我的订单</h2>
+                <div class="ddbox">
+                    <dl>
+                        <dt class="ddboxtab"><a class="current" href="#">最近一个月订单</a><a href="#">一个月之前订单</a><span
+                                    class="f-r"><a style="background:none;" class="blue" href="#">查看订单状态说明</a></span>
+                        </dt>
+                        <dd>
+                            <div class="ddtable">
+                                <table class="ddinfo" width="100%">
+                                    <tr>
+                                        <th>订单编号</th>
+                                        <th>订单商品</th>
+                                        <th>收货人</th>
+                                        <th>下单日期</th>
+                                        <th>总金额</th>
+                                        <th>订单状态</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    <tr>
+                                        <td width="100px"><a class="blue" href="#">1011757885</a></td>
+                                        <td width="240px"><a href="#"><img src="${ctx}/static/images/124ad.jpg" width="58" height="58"
+                                                                           alt=""/></a><a href="#"><img
+                                                        src="${ctx}/static/images/124ad.jpg" width="58" height="58" alt=""/></a><a
+                                                    href="#"><img src="${ctx}/static/images/124ad.jpg" width="58" height="58" alt=""/></a>
+                                        </td>
+                                        <td>刘德华</td>
+                                        <td>2011-11-03</td>
+                                        <td>￥2206.00<br/>(中国银行)</td>
+                                        <td class="ddgz">待支付<br/><a class="gzbtn blue" href="javascript:void(0);">跟踪</a>
+                                            <div class="ddtipbox">
+                                                <span class="arrow"></span>
+                                                <div>
+                                                    <h2><strong class="f-l">订单跟踪</strong><a class="f-r close"
+                                                                                            href="javascript:void(0);">X</a>
+                                                    </h2>
+                                                    <table width="100%">
+                                                        <tr>
+                                                            <th>处理时间按</th>
+                                                            <th>处理信息</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2011-11-03 16:28:02</td>
+                                                            <td>您提交了订单，等到客服审核。</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2011-11-03 16:28:02</td>
+                                                            <td>您提交了订单，等到客服审核。</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2011-11-03 16:28:02</td>
+                                                            <td>您提交了订单，等到客服审核。</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><a class="paybtn" href="#">付款</a><br/><a class="blue" href="#">订单详情</a></td>
+                                    </tr>
+                                </table>
+                            </div>
 
-            <script type="text/javascript">
-                /* reduce_add */
-                var setAmount = {
-                    min: 1,
-                    max: 999,
-                    reg: function (x) {
-                        return new RegExp("^[1-9]\\d*$").test(x);
-                    },
-                    amount: function (obj, mode) {
-                        var x = $(obj).val();
-                        if (this.reg(x)) {
-                            if (mode) {
-                                x++;
-                            } else {
-                                x--;
-                            }
-                        } else {
-                            alert("请输入正确的数量！");
-                            $(obj).val(1);
-                            $(obj).focus();
-                        }
-                        return x;
-                    },
-                    reduce: function (obj) {
-                        var x = this.amount(obj, false);
-                        if (x >= this.min) {
-                            $(obj).val(x);
-                        } else {
-                            alert("商品数量最少为" + this.min);
-                            $(obj).val(1);
-                            $(obj).focus();
-                        }
-                    },
-                    add: function (obj) {
-                        var x = this.amount(obj, true);
-                        if (x <= this.max) {
-                            $(obj).val(x);
-                        } else {
-                            alert("商品数量最多为" + this.max);
-                            $(obj).val(999);
-                            $(obj).focus();
-                        }
-                    },
-                    modify: function (obj) {
-                        var x = $(obj).val();
-                        if (x < this.min || x > this.max || !this.reg(x)) {
-                            alert("请输入正确的数量！");
-                            $(obj).val(1);
-                            $(obj).focus();
-                        }
-                    }
-                }
-            </script>
+                            <script type="text/javascript">
+                                $(function () {
+                                    $(".gzbtn").click(function () {
+                                        $(".ddtipbox").show();
+                                    });
+                                    $(".close").click(function () {
+                                        $(".ddtipbox").hide();
+                                    })
+                                });
+                            </script>
+
+                        </dd>
+                    </dl>
+                </div>
+            </div><!--presonalinfo end-->
+
+            <div class="clear"></div>
 
         </div><!--s_bd end-->
     </div><!--s_bdw end-->

@@ -3,7 +3,7 @@
 <!DOCTYPE html >
 <html>
 <head>
-    <#include "../head.ftl">
+    <#include "head.ftl">
     <script type="text/javascript">
         var timeout = 500;
         var closetimer = 0;
@@ -107,7 +107,7 @@
 <div id="doc">
     <div id="s_hdw">
 
-        <#include "../common/welcome.ftl">
+        <#include "common/welcome.ftl">
 
         <div class="s_hd nav">
             <div id="s_logo"><a href="#"><img src="${ctx}/static/images/logo.png" border="0"/></a></div>
@@ -145,7 +145,7 @@
                     </ul>
                 </div>
 
-                <#include "../common/cart.ftl">
+                <#include "common/cart.ftl">
 
                 <div id="s_cartbox" class="s_cartbox">您的购物车中暂无商品，赶快选择心爱的商品吧！</div>
 
@@ -1404,7 +1404,7 @@
                                                 <ul>
                                                     <li><a href="#">床品套件99元起</a></li>
                                                     <li><a href="#">华润家纺买赠特促</a></li>
-                                                    <li><a href="#">御灵珠宝登入1号店</a></li>
+                                                    <li><a href="#">御灵珠宝登入EGO</a></li>
                                                     <li><a href="#">婚庆开始了</a></li>
                                             </dd>
                                         </dl>
@@ -1809,123 +1809,114 @@
 
     </div><!--s_hdw end-->
 
-    <link type="text/css" href="${ctx}/static/css/info.css" rel="stylesheet"/>
+    <link type="text/css" href="${ctx}/static/css/lr.css" rel="stylesheet"/>
 
     <div id="s_bdw">
         <div id="s_bd">
 
-            <div class="stepflow"><img src="${ctx}/static/images/step01.gif" width="980" height="32" alt=""/></div>
+            <div class="dl_zc">
+                <div class="dl_zc_title">
+                    <h2 class="f_l">注册新用户</h2>
+                    <div class="rt_bg f_r"></div>
+                </div>
+                <div class="dl-con" id="regist">
+                    <form id="formpersonal" method="post" onsubmit="return false;">
+                        <div class="form">
+                            <div class="tipinfo">填写账户信息，以下信息均为必填</div>
+                            <div class="item">
+                                <span class="label">邮箱：</span>
 
-            <div class="addinfo">
-                <a href="javascript:history.go(-1);">返回继续购物</a>
-            </div><!--addinfo end-->
+                                <div class="fl">
+                                    <input type="text" id="mail" name="email" class="text" tabindex="4"/>
+                                    <label id="mail_succeed" class="blank"></label>
+                                    <span class="clear"></span>
 
+                                    <div id="mail_error"></div>
+                                </div>
+                            </div>
+                            <!--item end-->
+                            <div class="item">
+                                <span class="label">用户名：</span>
 
-            <div class="cartlist">
-                <form method="get" action="${ctx}/order/toPreOrder">
-                    <table width="100%">
-                        <tr>
-                            <th>购物车中的商品</th>
-                            <th>EGO价</th>
-                            <th>购买数量</th>
-                            <th>订单时间</th>
-                            <th>操作</th>
-                        </tr>
-                        <#list cartResult.cartList as cart>
-                            <tr bgcolor="#fffaf1">
-                                <td>
-                                    <a href="#"><img class="smallpic" src="${cart.originalImg}" width="80" height="80"/></a>
-                                    <a href="#">${cart.goodsName}</a>
-                                </td>
-                                <td><strong class="red">￥${cart.marketPrice}</strong></td>
-                                <td>
-                                    <div class="addinput">
-                                        <input type="text" name="qty_item_1" value="${cart.goodsNum}" id="qty_item_1"
-                                               onKeyUp="setAmount.modify('#qty_item_1')" class="stext"/>
-                                        <a class="add" onClick="setAmount.add('#qty_item_1')"
-                                           href="javascript:void(0)"></a>
-                                        <a class="reduce" onClick="setAmount.reduce('#qty_item_1')"
-                                           href="javascript:void(0)"></a>
+                                <div class="fl">
+                                    <input type="text" id="username" name="userName" class="text" tabindex="1"/>
+
+                                    <label id="username_succeed" class="blank"></label>
+                                    <span class="clear"></span>
+
+                                    <div id="username_error"></div>
+                                </div>
+                            </div>
+                            <!--item end-->
+                            <div id="o-password">
+                                <div class="item">
+
+                                    <span class="label">设置密码：</span>
+
+                                    <div class="fl">
+                                        <input type="password" id="pwd" name="password" class="text" tabindex="2"/>
+                                        <label id="pwd_succeed" class="blank"></label>
+                                        <input type="checkbox" class="checkbox" id="viewpwd"/>
+                                        <label class="ftx23" for="viewpwd">显示密码字符</label>
+                                        <span class="clear"></span>
+
+                                        <label class="hide" id="pwdstrength"><span
+                                                    class="fl">安全程度：</span><b></b></label>
+                                        <label id="pwd_error"></label>
                                     </div>
-                                </td>
-                                <td>${cart.addTime?string('yyyy-MM-dd HH:mm:ss')}</td>
-                                <td><a href="#" class="blue">删除</a></td>
-                            </tr>
-                        </#list>
-                        <tr>
-                            <td valign="top"><a href="#"><img src="${ctx}/static/images/deleteicon.gif"/> 清空购物车</a></td>
-                            <td align="right" colspan="5">
-                                <p>共<span id="cart_num" style="color: red"></span>件商品</p>
-                                <p style="margin-top:10px;font-size:14px;">
-                                    <strong style="font-size:18px;color:#d80000;">￥<span
-                                                id="total_price">${cartResult.totalPrice}</span></strong></p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border:none;padding-top:20px;" colspan="6">
-                                <input type="submit" value="" id="" class="btnimg f-r"/>
-                                <a class="f-r goonbtn" href="javascript:history.go(-1);">
-                                    <img src="${ctx}/static/images/gooncat.gif" width="86" height="24" alt=""/>
-                                </a>
-                            </td>
-                        </tr>
-                    </table>
-                </form>
-            </div><!--cartlist end-->
+                                </div>
+                                <!--item end-->
+                                <div class="item">
+                                    <span class="label">确认密码：</span>
 
-            <script type="text/javascript">
-                /* reduce_add */
-                var setAmount = {
-                    min: 1,
-                    max: 999,
-                    reg: function (x) {
-                        return new RegExp("^[1-9]\\d*$").test(x);
-                    },
-                    amount: function (obj, mode) {
-                        var x = $(obj).val();
-                        if (this.reg(x)) {
-                            if (mode) {
-                                x++;
-                            } else {
-                                x--;
-                            }
-                        } else {
-                            alert("请输入正确的数量！");
-                            $(obj).val(1);
-                            $(obj).focus();
-                        }
-                        return x;
-                    },
-                    reduce: function (obj) {
-                        var x = this.amount(obj, false);
-                        if (x >= this.min) {
-                            $(obj).val(x);
-                        } else {
-                            alert("商品数量最少为" + this.min);
-                            $(obj).val(1);
-                            $(obj).focus();
-                        }
-                    },
-                    add: function (obj) {
-                        var x = this.amount(obj, true);
-                        if (x <= this.max) {
-                            $(obj).val(x);
-                        } else {
-                            alert("商品数量最多为" + this.max);
-                            $(obj).val(999);
-                            $(obj).focus();
-                        }
-                    },
-                    modify: function (obj) {
-                        var x = $(obj).val();
-                        if (x < this.min || x > this.max || !this.reg(x)) {
-                            alert("请输入正确的数量！");
-                            $(obj).val(1);
-                            $(obj).focus();
-                        }
-                    }
-                }
-            </script>
+                                    <div class="fl">
+                                        <input type="password" id="pwd2" name="password" class="text" tabindex="3"/>
+                                        <label id="pwd2_succeed" class="blank"></label>
+                                        <span class="clear"></span>
+                                        <label id="pwd2_error"></label>
+                                    </div>
+                                </div>
+                                <!--item end-->
+                            </div>
+
+                            <div class="item">
+                                <span class="label">验证码：</span>
+                                <!--点击此元素会自动激活验证码-->
+                                <!--id : 元素的 ID (必须)-->
+                                <!--data-appid : AppID(必须)-->
+                                <!--data-cbfn : 回调函数名(必须)-->
+                                <!--data-biz-state : 业务自定义透传参数(可选)-->
+                                <button id="TencentCaptcha"
+                                        data-appid="2093497282"
+                                        data-cbfn="callback"
+                                        type="button">验证
+                                </button>
+                                <span style="color: red" id="msg"></span>
+                            </div>
+                            <!--item end-->
+                            <div class="item">
+                                <span class="label">&nbsp;</span>
+
+                                <div class="fl">
+                                    <input type="checkbox" name="" id="xieyi" value=""/><label class="blue" for="xieyi">自愿遵守EGO服务协议</label>
+                                </div>
+                            </div>
+                            <!--item end-->
+
+                            <div class="item">
+                                <span class="label">&nbsp;</span>
+                                <input type="button" class="btnimg" id="registsubmit" value=""
+                                       tabindex="8"/>
+                            </div>
+                            <!--item end-->
+                        </div>
+                    </form>
+
+                </div><!--regist end-->
+            </div><!--dl_zc end-->
+
+            <script type="text/javascript" src="${ctx}/static/js/Validate.js"></script>
+            <script type="text/javascript" src="${ctx}/static/js/Validate.personal.js"></script>
 
         </div><!--s_bd end-->
     </div><!--s_bdw end-->
@@ -2019,5 +2010,65 @@
     </div><!--s_ftw end-->
 
 </div>
+<script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+<script type="text/javascript">
+    var check = false;
+    window.callback = function (res) {
+        console.log(res)
+        // res（用户主动关闭验证码）= {ret: 2, ticket: null}
+        // res（验证成功） = {ret: 0, ticket: "String", randstr: "String"}
+        if (res.ret === 0) {
+            // alert(res.ticket)   // 票据
+            $.ajax({
+                type: "post",
+                url: "${ctx}/captcha",
+                data: {
+                    "ticket": res.ticket,
+                    "randStr": res.randstr,
+                },
+                success: function (result) {
+                    if (200 == result.code) {
+                        check = true;
+                        $("#msg").html("验证成功");
+                    } else {
+                        $("#msg").html("验证失败");
+                    }
+                }
+            });
+        }
+    }
+    // 用户注册
+    $("#registsubmit").on("click", function () {
+        console.log(check);
+        if (check) {
+            $.ajax({
+                url: "${ctx}/user/register",
+                type: "POST",
+                data: {
+                    email: $("#mail").val(),
+                    userName: $("#username").val(),
+                    password: $("#pwd").val()
+                },
+                dataType: "JSON",
+                success: function (result) {
+                    if (200 == result.code) {
+                        layer.alert("亲，注册成功，请登录！");
+                        setTimeout(function () {
+                            location.href = "${ctx}/login";
+                        }, 5000);
+                    } else {
+                        layer.msg("亲，系统正在升级中，请稍后再试！");
+                    }
+                },
+                error: function () {
+                    layer.alert("亲，系统正在升级中，请稍后再试！");
+                }
+            });
+        } else {
+            $("#msg").html("请进行验证");
+        }
+    });
+</script>
+
 </body>
 </html>

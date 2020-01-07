@@ -64,7 +64,8 @@ logging:
 # Redis Key
 # 商品分类列表 Key
 goods.category.list.key: goods:category:list:goodsCategoryList
-
+#用户购物车key
+user.cart: userCart
 # Elasticsearch
 elasticsearch.address: 192.168.10.100:9200, 192.168.10.100:9201, 192.168.10.100:9202
 

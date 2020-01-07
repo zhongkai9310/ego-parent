@@ -102,5 +102,15 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<!-- 腾讯云依赖 -->
+		<dependency>
+			<groupId>com.tencentcloudapi</groupId>
+			<artifactId>tencentcloud-sdk-java</artifactId>
+		</dependency>
+		<!-- amqp组件 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
+		</dependency>
 	</dependencies>
 </project>
